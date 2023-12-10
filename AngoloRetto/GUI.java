@@ -9,6 +9,7 @@ public class GUI extends JFrame {
     
     private static final long serialVersionUID = -6218820567019985015L;
     private final Map<JButton, Coord> cells = new HashMap<>();
+    private final Logics logic = new LogicsImpl();
     
     public GUI(int size) {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -20,7 +21,8 @@ public class GUI extends JFrame {
         ActionListener al = e -> {
         	var button = (JButton)e.getSource();
         	button.setText(""+cells.get(button).x()+";"+cells.get(button).y());
-        	button.setEnabled(false); 
+        	button.setEnabled(false);
+            
         };
                 
         for (int i=0; i<size; i++){
